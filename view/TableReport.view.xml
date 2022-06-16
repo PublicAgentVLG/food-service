@@ -1,0 +1,53 @@
+<mvc:View controllerName="food-service.food-service.controller.TableReport" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+    xmlns:uitable="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	displayBlock="true" 
+	xmlns="sap.m">
+	<Page 
+		title="Поисковой Сервис Еды"
+		class="freestyle-back sapUiContentPadding">
+		<content>
+            <uitable:Table id="tableEvent" selectionMode="None" rows="{path: 'mainModel>/reportTableSet'}" visibleRowCount="11">
+                <uitable:columns>
+                    
+                    <uitable:Column width="auto" sortProperty="name" filterProperty="name">
+                        <uitable:multiLabels>
+                            <Label text="Наименование"  textAlign="Center"  wrapping="true"/>
+                        </uitable:multiLabels>
+                            <uitable:template>
+                            <HBox justifyContent="Start">
+                                <Text text="{mainModel>name}"/>
+                            </HBox>
+                            </uitable:template>
+                    </uitable:Column>
+
+                     <uitable:Column width="auto" sortProperty="count" filterProperty="count">
+                        <uitable:multiLabels>
+                            <Label text="Количество"  textAlign="Center"  wrapping="true"/>
+                        </uitable:multiLabels>
+                            <uitable:template>
+                            <HBox justifyContent="Start">
+                                <Text text="{mainModel>count}"/>
+                            </HBox>
+                            </uitable:template>
+                    </uitable:Column>
+
+                     <uitable:Column width="auto" sortProperty="date" filterProperty="date">
+                        <uitable:multiLabels>
+                            <Label text="Дата"  textAlign="Center"  wrapping="true"/>
+                        </uitable:multiLabels>
+                            <uitable:template>
+                            <HBox justifyContent="Start">
+                                <Text text="{mainModel>date}"/>
+                            </HBox>
+                            </uitable:template>
+                    </uitable:Column>
+                    
+                </uitable:columns>
+            </uitable:Table>
+		</content>
+	</Page>
+</mvc:View>

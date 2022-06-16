@@ -1,0 +1,71 @@
+<mvc:View controllerName="food-service.food-service.controller.AddCompany" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	displayBlock="true" 
+	xmlns="sap.m">
+	<Page 
+		title="Поисковой Сервис Еды"
+		class="freestyle-back sapUiContentPadding">
+		<content>
+			<VBox>
+                <f:SimpleForm 
+					title="Новое предприятие"
+					editable="false"
+					layout="ResponsiveGridLayout"
+					labelSpanXL="5"
+					labelSpanL="5"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" >
+					<f:content>
+						<Label class="sapUiTinyMargin" text="Название" />
+						<Input />
+                        <Label class="sapUiTinyMargin" text="Изображение" />
+                        <u:FileUploader
+                            width="100%"
+                            id="fileUploader"
+                            name="myFileUpload"
+                            uploadUrl="upload/"
+                            tooltip="Upload your file to the local server"
+                            uploadComplete="handleUploadComplete"/>
+						<Label class="sapUiTinyMargin" text="Город" />
+						<Input />
+                        <Label class="sapUiTinyMargin" text="Адрес" />
+						<Input />
+                        <Label class="sapUiTinyMargin" text="Тип кухни" />
+                        <Select
+                            width="100%"
+                            forceSelection="false"
+                            items="{
+                                path: 'mainModel>/region_kitchenSet'
+                            }">
+                            <core:Item key="{mainModel>key}" text="{mainModel>text}" />
+                        </Select>
+                        <Label class="sapUiTinyMargin" text="Режим работы с:" />
+						<TimePicker placeholder="Enter Time ..." />
+                        <Label class="sapUiTinyMargin" text="Режим работы по:" />
+						<TimePicker placeholder="Enter Time ..." />
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+		</content>
+        <footer>
+            <Toolbar class="nonBorder sapUiMediumMarginTop" >
+               
+                <ToolbarSpacer/>
+                <Button text="Добавить" type="Accept" press="complite"/>
+            </Toolbar>
+        </footer>
+	</Page>
+</mvc:View>

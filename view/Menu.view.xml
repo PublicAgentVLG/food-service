@@ -1,0 +1,65 @@
+<mvc:View controllerName="food-service.food-service.controller.Menu" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+    xmlns:grid="sap.ui.layout.cssgrid"
+    xmlns:f="sap.f"
+    xmlns:tnt="sap.tnt"
+	displayBlock="true" 
+	xmlns="sap.m">
+	<Page 
+		title="Поисковой Сервис Еды"
+		class="freestyle-back sapUiContentPadding">
+        <subHeader>
+            <tnt:ToolHeader>
+                <Label text="Тип блюда" />
+                 <Select
+                    width="10%"
+                    forceSelection="false"
+                    items="{
+                        path: 'mainModel>/type_dish'
+                    }">
+                    <core:Item key="{mainModel>key}" text="{mainModel>text}" />
+                </Select>
+                <SearchField width="20%"/>
+            </tnt:ToolHeader>
+		</subHeader>
+		<content>
+            <!--<l:HorizontalLayout id="TileContainerExpanded"
+                allowWrapping="true"
+                content="{path: 'mainModel>/menuSet'}"
+                class="sapUiTinyMarginTopBottom">-->
+                <HBox items="{path: 'mainModel>/menuSet'}" alignContent="SpaceAround" displayInline="true" fitContainer="true" wrap="Wrap">
+                    <VBox class="menuItem sapUiSmallMarginEnd">
+                        <SlideTile >
+                            <GenericTile
+                            backgroundImage="{mainModel>img_link}"
+                                frameType="TwoByOne" press="clickMenuItem">
+                                <TileContent footer="{mainModel>structure}">
+                                    <NewsContent
+                                        contentText="{mainModel>name}"
+                                        subheader="Цена: {mainModel>price} руб." />
+                                </TileContent>
+                            </GenericTile>
+                        </SlideTile>
+                        <Toolbar class="nonBorder sapUiMediumMarginTop sapUiSmallMarginBottom" id="toolbar1">
+                            <ToolbarSpacer/>
+                            <Button text="-" press="decCount"/>
+                            <ToolbarSpacer/>
+                            <Title text="{mainModel>count}" />
+                            <ToolbarSpacer/>
+                            <Button text="+" press="incCount"/>
+                            <ToolbarSpacer/>
+                        </Toolbar>
+                    </VBox>
+                </HBox>
+            <!--</l:HorizontalLayout>-->
+		</content>
+        <footer>
+            <Toolbar class="nonBorder sapUiMediumMarginTop" >
+                <ToolbarSpacer/>
+                <Button text="Корзина" type="Accept" press="approveOrder"/>
+            </Toolbar>
+        </footer>
+	</Page>
+</mvc:View>

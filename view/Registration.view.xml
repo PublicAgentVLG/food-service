@@ -1,0 +1,71 @@
+<mvc:View controllerName="food-service.food-service.controller.Registration" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	displayBlock="true" 
+	xmlns="sap.m">
+	<Page 
+		title="Поисковой Сервис Еды"
+		class="freestyle-back sapUiContentPadding">
+		<content>
+			<VBox>
+				<f:SimpleForm
+					title="Регистрация"
+					editable="false"
+					layout="ResponsiveGridLayout"
+					labelSpanXL="5"
+					labelSpanL="5"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" >
+					<f:content>
+					
+						<Label class="sapUiTinyMargin" text="Логин" />
+						<Input />
+						<Label class="sapUiTinyMargin" text="Пароль" />
+						<Input />
+						<Label text="" />
+					</f:content>
+				</f:SimpleForm>
+                <f:SimpleForm 
+					title="Основные данные"
+					editable="false"
+					layout="ResponsiveGridLayout"
+					labelSpanXL="5"
+					labelSpanL="5"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" >
+					<f:content>
+					
+						<Label class="sapUiTinyMargin" text="ФИО" />
+						<Input />
+						<Label class="sapUiTinyMargin" text="Город" />
+						<Input />
+                        <Label class="sapUiTinyMargin" text="Адрес" />
+						<Input />
+						<Label class="sapUiTinyMargin" text="Владелец ресторана" />
+						<Switch customTextOn="Да" customTextOff="Нет"/>
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

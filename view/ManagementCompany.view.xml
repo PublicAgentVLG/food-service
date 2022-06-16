@@ -1,0 +1,64 @@
+<mvc:View controllerName="food-service.food-service.controller.ManagementCompany" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+    xmlns:tnt="sap.tnt"
+	displayBlock="true" 
+	xmlns="sap.m">
+	<Page 
+		title="Поисковой Сервис Еды"
+		class="freestyle-back sapUiContentPadding">
+        <headerContent>
+		</headerContent>
+        <subHeader>
+            <tnt:ToolHeader>
+                <Label text="Регион кухни" />
+                <Select
+                    width="10%"
+                    forceSelection="false"
+                    items="{
+                        path: 'mainModel>/region_kitchenSet'
+                    }">
+                    <core:Item key="{mainModel>key}" text="{mainModel>text}" />
+                </Select>
+                <SearchField width="20%"/>
+                <ToolbarSpacer/>
+                <Button text="Добавить новое предприятие" type="Accept" press="navToAddCompany"/>
+            </tnt:ToolHeader>
+		</subHeader>
+		<content>
+            <VBox>
+            <Title text="Мои предприятия" />
+            </VBox>
+            <VBox>
+            <l:HorizontalLayout id="TileContainerExpanded"
+                allowWrapping="true"
+                content="{path: 'mainModel>/myCompanySet'}"
+                class="sapUiTinyMarginTopBottom">
+
+                <SlideTile class="sapUiTinyMarginBegin sapUiTinyMarginTop">
+                    <GenericTile
+                        backgroundImage="{mainModel>back_img_link1}"
+                        frameType="TwoByOne" press="navToManagentCurrentCompany">
+                        <TileContent footer="Режим работы: c {mainModel>start_time} до {mainModel>end_time}">
+                            <NewsContent
+                                contentText="{mainModel>name}"
+                                subheader="{mainModel>type_kitchen}" />
+                        </TileContent>
+                    </GenericTile>
+                    <GenericTile
+                        backgroundImage="{mainModel>back_img_link2}"
+                        frameType="TwoByOne" press="navToManagentCurrentCompany">
+                        <TileContent footer="Режим работы: c {mainModel>start_time} до {mainModel>end_time}">
+                            <NewsContent
+                                contentText="{mainModel>name}"
+                                subheader="{mainModel>type_kitchen}" />
+                        </TileContent>
+                    </GenericTile>
+                </SlideTile>
+            </l:HorizontalLayout>
+            </VBox>
+		</content>
+	</Page>
+</mvc:View>

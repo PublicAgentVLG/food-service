@@ -1,0 +1,47 @@
+<mvc:View controllerName="food-service.food-service.controller.ChartReport" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:f="sap.ui.layout.form"
+	displayBlock="true" 
+	xmlns="sap.m">
+	<Page 
+		title="Поисковой Сервис Еды"
+		class="freestyle-back sapUiContentPadding">
+		<content>
+            <viz:VizFrame vizProperties="{ title: {text : 'Аналитический отчёт по продажам', visible : true}}" id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+                height='100%' class="customVizFrame" width="100%" vizType='line'>
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{path: 'mainModel>/realisation'}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Дата"
+                                value="{mainModel>date}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Количество"
+                                value="{mainModel>CocaCola}" />
+                            <viz.data:MeasureDefinition name="Курица гриль"
+                                value="{mainModel>КурицаГриль}" />
+							<viz.data:MeasureDefinition name="Рататуй"
+                                value="{mainModel>Рататуй}" />
+							<viz.data:MeasureDefinition name="Утиная грудка"
+                                value="{mainModel>УтинаяГрудка}" />
+							<viz.data:MeasureDefinition name="Сёмга"
+                                value="{mainModel>Сёмга}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure"
+                        values="Количество,Курица гриль,Рататуй,Утиная грудка,Сёмга" />
+                    <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension"
+                        values="Дата" />
+                </viz:feeds>
+            </viz:VizFrame>
+		</content>
+	</Page>
+</mvc:View>

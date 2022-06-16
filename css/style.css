@@ -1,0 +1,18 @@
+/* Enter your custom styles here */
+.freestyle-back{
+	background: url(../img/background.jpg)!important;	
+	background-position: center center!important;
+	background-repeat: no-repeat!important;
+	background-attachment: fixed!important;
+	background-size: cover!important;
+}
+.nonBorder{
+	border-bottom: 0px solid #d9d9d9!important;
+}
+.menuItem{
+	background-color: #FFF;
+	border-radius: 10px;
+}
+.customVizFrame{
+	background-color: #FFF;
+}

@@ -1,0 +1,235 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "food-service.food-service",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.38.11"
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "food-service.food-service.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "App"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "food-service.food-service.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "food-service.food-service.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes":  [
+				{
+					"name": "start",
+					"pattern": "",
+					"target": [
+						"start"
+					]
+				},
+				{
+					"name": "registration",
+					"pattern": "registration",
+					"target": [
+						"registration"
+					]
+				},
+				{
+					"name": "main",
+					"pattern": "main",
+					"target": [
+						"main"
+					]
+				},
+				{
+					"name": "menu",
+					"pattern": "menu",
+					"target": [
+						"menu"
+					]
+				},
+				{
+					"name": "checkout",
+					"pattern": "checkout",
+					"target": [
+						"checkout"
+					]
+				},
+				{
+					"name": "management",
+					"pattern": "management",
+					"target": [
+						"management"
+					]
+				},
+				{
+					"name": "addCompany",
+					"pattern": "addCompany",
+					"target": [
+						"addCompany"
+					]
+				},
+				{
+					"name": "currentCompany",
+					"pattern": "currentCompany",
+					"target": [
+						"currentCompany"
+					]
+				},
+				{
+					"name": "chartReport",
+					"pattern": "chartReport",
+					"target": [
+						"chartReport"
+					]
+				},
+				{
+					"name": "currentMenu",
+					"pattern": "currentMenu",
+					"target": [
+						"currentMenu"
+					]
+				},
+				{
+					"name": "addDish",
+					"pattern": "addDish",
+					"target": [
+						"addDish"
+					]
+				},
+				{
+					"name": "demandOffer",
+					"pattern": "demandOffer",
+					"target": [
+						"demandOffer"
+					]
+				},
+				{
+					"name": "tableReport",
+					"pattern": "tableReport",
+					"target": [
+						"tableReport"
+					]
+				},
+				{
+					"name": "recomendation",
+					"pattern": "recomendation",
+					"target": [
+						"recomendation"
+					]
+				},
+				{
+					"name": "dishReportRec",
+					"pattern": "dishReportRec",
+					"target": [
+						"dishReportRec"
+					]
+				}
+
+			],
+			"targets":  {
+				"start": {
+						"viewName": "Start"
+				},
+				"registration": {
+					"viewName": "Registration"
+				},
+				"main": {
+					"viewName": "Main"
+				},
+				"menu": {
+					"viewName": "Menu"
+				},
+				"checkout": {
+					"viewName": "Checkout"
+				},
+				"management": {
+					"viewName": "ManagementCompany"
+				},
+				"addCompany": {
+					"viewName": "AddCompany"
+				},
+				"currentCompany": {
+					"viewName": "CurrentCompany"
+				},
+				"chartReport": {
+					"viewName": "ChartReport"
+				},
+				"currentMenu": {
+					"viewName": "CurrentMenu"
+				},
+				"addDish": {
+					"viewName": "AddDish"
+				},
+				"demandOffer": {
+					"viewName": "DemandOffer"
+				},
+				"tableReport": {
+					"viewName": "TableReport"
+				},
+				"recomendation": {
+					"viewName": "Recomendation"
+				},
+				"dishReportRec": {
+					"viewName": "DishReportRec"
+				}
+			}
+		}
+	}
+}

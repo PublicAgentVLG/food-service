@@ -1,0 +1,57 @@
+<mvc:View controllerName="food-service.food-service.controller.CurrentMenu" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+    xmlns:grid="sap.ui.layout.cssgrid"
+    xmlns:f="sap.f"
+    xmlns:tnt="sap.tnt"
+	displayBlock="true" 
+	xmlns="sap.m">
+	<Page 
+		title="Поисковой Сервис Еды"
+		class="freestyle-back sapUiContentPadding">
+        <subHeader>
+            <tnt:ToolHeader>
+                <Label text="Тип блюда" />
+                 <Select
+                    width="10%"
+                    forceSelection="false"
+                    items="{
+                        path: 'mainModel>/type_dish'
+                    }">
+                    <core:Item key="{mainModel>key}" text="{mainModel>text}" />
+                </Select>
+                <SearchField width="20%"/>
+                <ToolbarSpacer/>
+                <Button text="Добавить новое блюдо" type="Accept" press="navToAddDish"/>
+            </tnt:ToolHeader>
+		</subHeader>
+		<content>
+            <HBox items="{path: 'mainModel>/currentMenuSet'}" alignContent="SpaceAround" displayInline="true" fitContainer="false" wrap="Wrap">
+                <VBox class="menuItem sapUiSmallMarginEnd">
+                    <SlideTile >
+                        <GenericTile
+                            backgroundImage="{mainModel>img_link}"
+                            frameType="TwoByOne" press="clickMenuItem">
+                            <TileContent footer="{mainModel>structure}">
+                                <NewsContent
+                                    contentText="{mainModel>name}"
+                                    subheader="Цена: {mainModel>price} руб." />
+                            </TileContent>
+                        </GenericTile>
+                    </SlideTile>
+                    <Toolbar class="nonBorder sapUiMediumMarginTop sapUiSmallMarginBottom" id="toolbar1">
+                        <ToolbarSpacer/>
+                        <Title text="{mainModel>count}" />
+                        <ToolbarSpacer/>
+                        <Button icon="sap-icon://business-objects-experience" text="Спрос\Предложение" press="navToDemandOffer"/>
+                        <ToolbarSpacer/>
+                        <Button icon="sap-icon://edit" press="incCount"/>
+                        <ToolbarSpacer/>
+                        <Button icon="sap-icon://delete"/>
+                    </Toolbar>
+                </VBox>
+            </HBox>
+		</content>
+	</Page>
+</mvc:View>

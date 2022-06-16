@@ -1,0 +1,41 @@
+<mvc:View controllerName="food-service.food-service.controller.DemandOffer" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:f="sap.ui.layout.form"
+	displayBlock="true" 
+	xmlns="sap.m">
+	<Page 
+		title="Поисковой Сервис Еды"
+		class="freestyle-back sapUiContentPadding">
+		<content>
+            <viz:VizFrame vizProperties="{ title: {text : 'Курица гриль: Спрос и Предложение', visible : true}}" id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+                height='100%' class="customVizFrame" width="100%" vizType='line'>
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{path: 'mainModel>/demandOfferSet'}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Дата"
+                                value="{mainModel>date}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Спрос"
+                                value="{mainModel>Спрос}" />
+                            <viz.data:MeasureDefinition name="Предложение"
+                                value="{mainModel>Предложение}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+
+                <viz:feeds>
+                    <viz.feeds:FeedItem id='valueAxisFeed' uid="valueAxis" type="Measure"
+                        values="Спрос,Предложение" />
+                    <viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension"
+                        values="Дата" />
+                </viz:feeds>
+            </viz:VizFrame>
+		</content>
+	</Page>
+</mvc:View>

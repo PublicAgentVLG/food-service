@@ -1,0 +1,56 @@
+<mvc:View controllerName="food-service.food-service.controller.Recomendation" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+    xmlns:grid="sap.ui.layout.cssgrid"
+    xmlns:f="sap.f"
+    xmlns:tnt="sap.tnt"
+	displayBlock="true" 
+	xmlns="sap.m">
+	<Page 
+		title="Поисковой Сервис Еды"
+		class="freestyle-back sapUiContentPadding">
+        <subHeader>
+            <tnt:ToolHeader>
+                <Label text="Тип блюда" />
+                 <Select
+                    width="10%"
+                    forceSelection="false"
+                    items="{
+                        path: 'mainModel>/type_dish'
+                    }">
+                    <core:Item key="{mainModel>key}" text="{mainModel>text}" />
+                </Select>
+                <SearchField width="20%"/>
+                <ToolbarSpacer/>
+            </tnt:ToolHeader>
+		</subHeader>
+		<content>
+            <HBox items="{path: 'mainModel>/recomendationMenuSet'}" alignContent="SpaceAround" displayInline="true" fitContainer="false" wrap="Wrap">
+                <VBox class="menuItem sapUiSmallMarginEnd">
+                    <SlideTile >
+                        <GenericTile
+                            backgroundImage="{mainModel>img_link}"
+                            frameType="TwoByOne" press="clickMenuItem">
+                            <TileContent footer="{mainModel>structure}">
+                                <NewsContent
+                                    contentText="{mainModel>name}"
+                                    subheader="Цена: {mainModel>price} руб." />
+                            </TileContent>
+                        </GenericTile>
+                    </SlideTile>
+                    <Toolbar class="nonBorder sapUiMediumMarginTop sapUiSmallMarginBottom" id="toolbar1">
+                        <ToolbarSpacer/>
+                        <Title text="Риск:" />
+                        	<ObjectStatus
+                                text="{mainModel>statusText}"
+                                icon="{mainModel>icon_url}"
+                                state="{mainModel>status}" />
+                        <ToolbarSpacer/>
+                        <Button icon="sap-icon://business-objects-experience" text="Динамика спроса" press="navToDishReport"/>
+                    </Toolbar>
+                </VBox>
+            </HBox>
+		</content>
+	</Page>
+</mvc:View>

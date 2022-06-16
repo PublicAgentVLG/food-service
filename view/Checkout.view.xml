@@ -1,0 +1,80 @@
+<mvc:View controllerName="food-service.food-service.controller.Checkout" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form"
+	displayBlock="true" 
+	xmlns="sap.m">
+	<Page 
+		title="Поисковой Сервис Еды"
+		class="freestyle-back sapUiContentPadding">
+		<content>
+			<VBox>
+				<form:SimpleForm id="SimpleFormDisplay354wideDual"
+					title="Содержание заказ"
+					editable="false"
+					layout="ResponsiveGridLayout"
+					labelSpanXL="12"
+					labelSpanL="12"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="0"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="3"
+					columnsL="2"
+					columnsM="1"
+					singleContainerFullSize="false" >
+					<form:content>
+                        <core:Title text="Список позиций" />
+                        <Label />
+                        <List mode="Delete" items="{path: 'mainModel>/checkoutSet'}" >
+                            <CustomListItem>
+                                <HBox>
+                                    <core:Icon size="2rem" src="sap-icon://cart-3" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+                                    <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+                                        <Title text="{mainModel>name}" />
+                                        <Label text="{mainModel>count}"/>
+                                    </VBox>
+                                    <VBox fitContainer="true" width="100%" justifyContent="Center" alignItems="End">
+                                        <Title text="{ parts: [{path: 'mainModel>count'},{path:'mainModel>price'}], formatter: '.Common.Summ'} руб." />
+                                    </VBox>
+                                </HBox>
+                            </CustomListItem>
+                        </List>
+                        <core:Title text="Адрес доставки" />
+                        <Label text="Улица"/>
+                        <Input value="ул. Шувилова" />
+                        <Label text="Дом"/>
+                        <Input value="12а" />
+                        <Label text="Подъезд"/>
+                        <Input value="3" />
+                        <Label text="Квартира"/>
+                        <Input value="32" />
+                        <Label text="Этаж"/>
+                        <Input value="2" />
+                        <core:Title text="Подробная информация" />
+                        <Label text="Дата доставки"/>
+                        <DatePicker placeholder="Enter Date ..." />
+                        <Label text="Время доставки"/>
+                        <TimePicker placeholder="Enter Time ..." />
+                        <Label text="Комментарии"/>
+                        <FeedInput
+                            post="onPost"
+                            showIcon="true"
+                            icon="test-resources/sap/m/images/george_washington.jpg" />
+					</form:content>
+				</form:SimpleForm>
+			</VBox>
+		</content>
+        <footer>
+            <Toolbar class="nonBorder sapUiMediumMarginTop" >
+               
+                <ToolbarSpacer/>
+                <Button text="Оформить заказ" type="Accept" press="approveOrder"/>
+            </Toolbar>
+        </footer>
+	</Page>
+</mvc:View>
